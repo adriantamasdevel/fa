@@ -1,0 +1,282 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "F1 Competition API",
+        "description": "F1 Competition API",
+        "version": "1.0.0"
+    },
+    "host": "",
+    "basePath": "/v1",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/races": {
+            "get": {
+                "tags": [
+                    "races"
+                ],
+                "summary": "Return a list of races.",
+                "description": "Gets the races",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Pagination offset, default of 0.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Pagination limit, default of 25.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "How to sort the results, which can be csv values of 'id' and 'title'. You can set minus (-) to sort descdending, e.g. '-id' to sort by competition id descending.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON Response",
+                        "schema": {
+                            "$ref": "#/definitions/races"
+                        }
+                    },
+                    "400": {
+                        "description": "Parameters not acceptable not found"
+                    }
+                }
+            }
+        },
+        "/races/{id}": {
+            "get": {
+                "tags": [
+                    "races"
+                ],
+                "summary": "Return a single race and return JSON response",
+                "description": "Return a single race",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Race ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept-language",
+                        "in": "header",
+                        "description": "Required language/locale (defaults to gb)",
+                        "required": true,
+                        "schema": {
+                            "$ref": ""
+                        },
+                        "type": "string",
+                        "default": "gb"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON Response",
+                        "schema": {
+                            "$ref": "#/definitions/race"
+                        }
+                    },
+                    "404": {
+                        "description": "Race not found"
+                    }
+                }
+            }
+        },
+        "/teams": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "summary": "Return a list of teams.",
+                "description": "Gets the teams",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Pagination offset, default of 0.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Pagination limit, default of 25.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "How to sort the results, which can be csv values of 'id' and 'title'. You can set minus (-) to sort descdending, e.g. '-id' to sort by competition id descending.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON Response",
+                        "schema": {
+                            "$ref": "#/definitions/teams"
+                        }
+                    },
+                    "400": {
+                        "description": "Parameters not acceptable not found"
+                    }
+                }
+            }
+        },
+        "/teams/{id}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "summary": "Return a team and return JSON response",
+                "description": "Return a single team",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Team ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept-language",
+                        "in": "header",
+                        "description": "Required language/locale (defaults to gb)",
+                        "required": true,
+                        "schema": {
+                            "$ref": ""
+                        },
+                        "type": "string",
+                        "default": "gb"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON Response",
+                        "schema": {
+                            "$ref": "#/definitions/race"
+                        }
+                    },
+                    "404": {
+                        "description": "Race not found"
+                    }
+                }
+            }
+        },
+        "/drivers": {
+            "get": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "Return a list of drivers.",
+                "description": "Gets the riders",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Pagination offset, default of 0.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Pagination limit, default of 25.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "How to sort the results, which can be csv values of 'id' and 'title'. You can set minus (-) to sort descdending, e.g. '-id' to sort by competition id descending.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON Response",
+                        "schema": {
+                            "$ref": "#/definitions/drivers"
+                        }
+                    },
+                    "400": {
+                        "description": "Parameters not acceptable not found"
+                    }
+                }
+            }
+        },
+        "/drivers/{id}": {
+            "get": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "Return a team and return JSON response",
+                "description": "Return a single team",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Driver ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept-language",
+                        "in": "header",
+                        "description": "Required language/locale (defaults to gb)",
+                        "required": true,
+                        "schema": {
+                            "$ref": ""
+                        },
+                        "type": "string",
+                        "default": "gb"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON Response",
+                        "schema": {
+                            "$ref": "#/definitions/riders"
+                        }
+                    },
+                    "404": {
+                        "description": "Race not found"
+                    }
+                }
+            }
+        }
+    }
+}
