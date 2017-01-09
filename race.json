@@ -1,8 +1,9 @@
 {
 	"data":
 		{
-			"id": 67,
-			"name": "Formula One 2016",
-			"year": 2016
+			"seasonId": 67,
+			"seasonName": "Formula One 2016",
+			"seasonYear": 2016,
+			"seasonUrl": "https://en.wikipedia.org/wiki/2016_Formula_One_season"
 		}
 }
